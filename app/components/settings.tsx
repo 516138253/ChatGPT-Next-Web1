@@ -354,30 +354,6 @@ export function Settings() {
                  去看看~
               </Link>
           </ListItem>
-          {/* <ListItem
-            title={Locale.Settings.Update.Version(currentVersion ?? "unknown")}
-            subTitle={
-              checkingUpdate
-                ? Locale.Settings.Update.IsChecking
-                : hasNewVersion
-                ? Locale.Settings.Update.FoundUpdate(remoteId ?? "ERROR")
-                : Locale.Settings.Update.IsLatest
-            }
-          >
-            {checkingUpdate ? (
-              <LoadingIcon />
-            ) : hasNewVersion ? (
-              <Link href={UPDATE_URL} target="_blank" className="link">
-                {Locale.Settings.Update.GoToUpdate}
-              </Link>
-            ) : (
-              <IconButton
-                icon={<ResetIcon></ResetIcon>}
-                text={Locale.Settings.Update.CheckUpdate}
-                onClick={() => checkUpdate(true)}
-              />
-            )}
-          </ListItem> */}
 
           <ListItem title={Locale.Settings.SendKey}>
             <Select
@@ -448,38 +424,6 @@ export function Settings() {
             ></InputRange>
           </ListItem>
 
-          {/* <ListItem
-            title={Locale.Settings.SendPreviewBubble.Title}
-            subTitle={Locale.Settings.SendPreviewBubble.SubTitle}
-          >
-            <input
-              type="checkbox"
-              checked={config.sendPreviewBubble}
-              onChange={(e) =>
-                updateConfig(
-                  (config) =>
-                    (config.sendPreviewBubble = e.currentTarget.checked),
-                )
-              }
-            ></input>
-          </ListItem>
-
-          <ListItem
-            title={Locale.Settings.Mask.Title}
-            subTitle={Locale.Settings.Mask.SubTitle}
-          >
-            <input
-              type="checkbox"
-              checked={!config.dontShowMaskSplashScreen}
-              onChange={(e) =>
-                updateConfig(
-                  (config) =>
-                    (config.dontShowMaskSplashScreen =
-                      !e.currentTarget.checked),
-                )
-              }
-            ></input>
-          </ListItem> */}
         </List>
 
         <List>
@@ -501,46 +445,7 @@ export function Settings() {
             <></>
           )}
 
-          {/* {!accessStore.hideUserApiKey ? (
-            <ListItem
-              title={Locale.Settings.Token.Title}
-              subTitle={Locale.Settings.Token.SubTitle}
-            >
-              <PasswordInput
-                value={accessStore.token}
-                type="text"
-                placeholder={Locale.Settings.Token.Placeholder}
-                onChange={(e) => {
-                  accessStore.updateToken(e.currentTarget.value);
-                }}
-              />
-            </ListItem>
-          ) : null} */}
-
-          {/* <ListItem
-            title={Locale.Settings.Usage.Title}
-            subTitle={
-              showUsage
-                ? loadingUsage
-                  ? Locale.Settings.Usage.IsChecking
-                  : Locale.Settings.Usage.SubTitle(
-                      usage?.used ?? "[?]",
-                      usage?.subscription ?? "[?]",
-                    )
-                : Locale.Settings.Usage.NoAccess
-            }
-          >
-            {!showUsage || loadingUsage ? (
-              <div />
-            ) : (
-              <IconButton
-                icon={<ResetIcon></ResetIcon>}
-                text={Locale.Settings.Usage.Check}
-                onClick={() => checkUsage(true)}
-              />
-            )}
-          </ListItem>
-        </List> */}
+        </List>
 
         <List>
           <ListItem
@@ -573,17 +478,6 @@ export function Settings() {
             />
           </ListItem>
         </List>
-{/* 
-        <List>
-          <ModelConfigList
-            modelConfig={config.modelConfig}
-            updateConfig={(upater) => {
-              const modelConfig = { ...config.modelConfig };
-              upater(modelConfig);
-              config.update((config) => (config.modelConfig = modelConfig));
-            }}
-          />
-        </List> */}
 
         {shouldShowPromptModal && (
           <UserPromptModal onClose={() => setShowPromptModal(false)} />
