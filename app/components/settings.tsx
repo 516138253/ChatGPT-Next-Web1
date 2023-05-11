@@ -349,8 +349,12 @@ export function Settings() {
               </div>
             </Popover>
           </ListItem>
-
-          <ListItem
+          <ListItem title="大鲸小怪官网">
+              <Link href={UPDATE_URL} target="_blank" className="link">
+                 去看看~
+              </Link>
+          </ListItem>
+          {/* <ListItem
             title={Locale.Settings.Update.Version(currentVersion ?? "unknown")}
             subTitle={
               checkingUpdate
@@ -373,7 +377,7 @@ export function Settings() {
                 onClick={() => checkUpdate(true)}
               />
             )}
-          </ListItem>
+          </ListItem> */}
 
           <ListItem title={Locale.Settings.SendKey}>
             <Select
@@ -444,7 +448,7 @@ export function Settings() {
             ></InputRange>
           </ListItem>
 
-          <ListItem
+          {/* <ListItem
             title={Locale.Settings.SendPreviewBubble.Title}
             subTitle={Locale.Settings.SendPreviewBubble.SubTitle}
           >
@@ -475,7 +479,7 @@ export function Settings() {
                 )
               }
             ></input>
-          </ListItem>
+          </ListItem> */}
         </List>
 
         <List>
@@ -497,7 +501,7 @@ export function Settings() {
             <></>
           )}
 
-          {!accessStore.hideUserApiKey ? (
+          {/* {!accessStore.hideUserApiKey ? (
             <ListItem
               title={Locale.Settings.Token.Title}
               subTitle={Locale.Settings.Token.SubTitle}
@@ -511,9 +515,9 @@ export function Settings() {
                 }}
               />
             </ListItem>
-          ) : null}
+          ) : null} */}
 
-          <ListItem
+          {/* <ListItem
             title={Locale.Settings.Usage.Title}
             subTitle={
               showUsage
@@ -536,7 +540,7 @@ export function Settings() {
               />
             )}
           </ListItem>
-        </List>
+        </List> */}
 
         <List>
           <ListItem
@@ -569,7 +573,7 @@ export function Settings() {
             />
           </ListItem>
         </List>
-
+{/* 
         <List>
           <ModelConfigList
             modelConfig={config.modelConfig}
@@ -579,7 +583,7 @@ export function Settings() {
               config.update((config) => (config.modelConfig = modelConfig));
             }}
           />
-        </List>
+        </List> */}
 
         {shouldShowPromptModal && (
           <UserPromptModal onClose={() => setShowPromptModal(false)} />
