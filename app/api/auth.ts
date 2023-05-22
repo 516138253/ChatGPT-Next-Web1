@@ -50,9 +50,9 @@ export function auth(req: NextRequest) {
 
   // if user does not provide an api key, inject system api key
   if (!token) {
-    // const apiKey = serverConfig.apiKey;
+    const apiKey = serverConfig.apiKey;
     ///写死认证openAI key
-    const apiKey = "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";
+    // const apiKey = "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";
     if (apiKey) {
       console.log("[Auth] use system api key");
       req.headers.set("Authorization", `Bearer ${apiKey}`);
