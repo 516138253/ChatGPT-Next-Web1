@@ -3,18 +3,18 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "../../auth";
 import { requestOpenai } from "../../common";
 
-import { getServerSideConfig } from "../../../config/server";
-const serverConfig = getServerSideConfig();
+// import { getServerSideConfig } from "../../../config/server";
+// const serverConfig = getServerSideConfig();
 
-async function checkSystemKey() {
-   return fetch("/check/token", {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    method: "post",
-    body: JSON.stringify({"key":serverConfig.apiKey}),
-  });
-}
+// async function checkSystemKey() {
+//    return fetch("/check/token", {
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     method: "post",
+//     body: JSON.stringify({"key":serverConfig.apiKey}),
+//   });
+// }
 
 async function createStream(res: Response) {
   const encoder = new TextEncoder();
