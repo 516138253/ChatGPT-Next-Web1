@@ -166,22 +166,6 @@ export async function requestChatStream(
   const reqTimeoutId = setTimeout(() => controller.abort(), TIME_OUT_MS);
 
   try {
-    
-    // await fetch("http://gzdjxg.com:8899/checkToken", {
-    //   method: "GET",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   // body: JSON.stringify({ "token": useAccessStore.getState().token }),
-      
-    // }).then(res => {
-    //   if (res.ok) {
-    //   useAccessStore.getState().updateToken("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");
-    //   } else {
-    //    useAccessStore.getState().updateToken("");
-    //   }
-    // });
-
     const openaiUrl = useAccessStore.getState().openaiUrl;
     const res = await fetch(openaiUrl + "v1/chat/completions", {
       method: "POST",
