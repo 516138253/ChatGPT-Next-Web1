@@ -64,9 +64,9 @@ async function handle(
   console.log("[OpenAI Route] params ", params);
 
   ////大鲸小怪自定义参数校验
-  const response = await checkSystemKey()
-  const body = response.json();
-  console.log(body);
+  // const response = await checkSystemKey()
+  // const body = response.json();
+  // console.log(body);
 
   ///系统校验 发送参数
   const authResult = auth(req);
