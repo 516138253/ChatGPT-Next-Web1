@@ -1,6 +1,6 @@
 import { createParser } from "eventsource-parser";
 import { NextRequest, NextResponse } from "next/server";
-import { auth,getApiKey } from "../../auth";
+import { auth} from "../../auth";
 import { requestOpenai } from "../../common";
 
 
@@ -45,28 +45,11 @@ function formatResponse(msg: any) {
   return new Response(jsonMsg);
 }
 
-function checkSystemKey() {
-  console.log(getApiKey())
-  fetch("/check/token", {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    method: "post",
-    body: JSON.stringify({"key":getApiKey()}),
-  }).then((res)=>{
-    console.log(res)
-  });
-}
-
 async function handle(
   req: NextRequest,
   { params }: { params: { path: string[] } },
 ) {
   console.log("[OpenAI Route] params ", params);
-
-  ////大鲸小怪自定义参数校验
-   checkSystemKey()
-  // const body = response.json();
 
   ///系统校验 发送参数
   const authResult = auth(req);
