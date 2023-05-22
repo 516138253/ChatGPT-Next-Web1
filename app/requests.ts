@@ -167,7 +167,7 @@ export async function requestChatStream(
 
   try {
     console.log(useAccessStore.getState().token)
-    useAccessStore.updateToken("");
+    useAccessStore.getState().updateToken("");
 
     const openaiUrl = useAccessStore.getState().openaiUrl;
     const res = await fetch(openaiUrl + "v1/chat/completions", {
