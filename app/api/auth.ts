@@ -52,7 +52,7 @@ export function auth(req: NextRequest) {
   if (!token) {
     // const apiKey = serverConfig.apiKey;
     ///写死认证openAI key
-    const apiKey = "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";
+    const apiKey = "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";
     if (apiKey) {
       console.log("[Auth] use system api key");
       req.headers.set("Authorization", `Bearer ${apiKey}`);
