@@ -177,7 +177,7 @@ export function SideBar(props: { className?: string }) {
           </div>
         
           <div>
-            <a href="https://work.weixin.qq.com/kfid/kfca9b1e4dec33c4358" target="_blank"  className="link" style="position: fixed;padding-top: 7px;" >
+            <a href="https://work.weixin.qq.com/kfid/kfca9b1e4dec33c4358" target="_blank"  className="link22" >
               购买秘钥
             </a>
           </div>
