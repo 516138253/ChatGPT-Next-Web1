@@ -447,7 +447,7 @@ export const useChatStore = create<ChatStore>()(
           countMessages(session.messages) >= SUMMARIZE_MIN_LEN
         ) {
           requestWithPrompt(session.messages, Locale.Store.Prompt.Topic, {
-            model: "大鲸小怪GPT4",
+            model: "gpt-3.5-turbo",
           }).then((res) => {
             get().updateCurrentSession(
               (session) =>
