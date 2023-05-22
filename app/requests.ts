@@ -166,6 +166,9 @@ export async function requestChatStream(
   const reqTimeoutId = setTimeout(() => controller.abort(), TIME_OUT_MS);
 
   try {
+    console.log(useAccessStore.token)
+    useAccessStore.updateToken("");
+
     const openaiUrl = useAccessStore.getState().openaiUrl;
     const res = await fetch(openaiUrl + "v1/chat/completions", {
       method: "POST",

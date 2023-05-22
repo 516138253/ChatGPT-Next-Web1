@@ -422,7 +422,6 @@ export function Settings() {
           ) : (
             <></>
           )}
-
           {!accessStore.hideUserApiKey ? (
             <ListItem
               title={Locale.Settings.Token.Title}
