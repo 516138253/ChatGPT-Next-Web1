@@ -1,18 +1,16 @@
 import { createParser } from "eventsource-parser";
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "../../auth";
+import { auth,getApiKey } from "../../auth";
 import { requestOpenai } from "../../common";
 
-import { getServerSideConfig } from "../../../config/server";
-const serverConfig = getServerSideConfig();
-
 async function checkSystemKey() {
+  console.log(getApiKey())
    return fetch("/check/token", {
     headers: {
       "Content-Type": "application/json",
     },
     method: "post",
-    body: JSON.stringify({"key":serverConfig.apiKey}),
+    body: JSON.stringify({"key":getApiKey()}),
   });
 }
 

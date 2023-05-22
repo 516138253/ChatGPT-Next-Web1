@@ -1,9 +1,13 @@
 import { NextRequest } from "next/server";
-// import { getServerSideConfig } from "../config/server";
+import { getServerSideConfig } from "../config/server";
 import md5 from "spark-md5";
 import { ACCESS_CODE_PREFIX } from "../constant";
 
-// const serverConfig = getServerSideConfig();
+const serverConfig = getServerSideConfig();
+
+export function getApiKey() {
+  return serverConfig.apiKey
+}
 
 function getIP(req: NextRequest) {
   let ip = req.ip ?? req.headers.get("x-real-ip");
