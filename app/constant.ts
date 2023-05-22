@@ -1,5 +1,5 @@
 export const OWNER = "Yidadaa";
-export const REPO = "大鲸小怪技术有限公司";
+export const REPO = "大鲸小怪GPT4";
 export const REPO_URL = `http://gzdjxg.com/`;
 export const ISSUE_URL = `http://gzdjxg.com/`;
 export const UPDATE_URL = `http://gzdjxg.com/`;

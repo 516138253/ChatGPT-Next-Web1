@@ -175,9 +175,10 @@ export function SideBar(props: { className?: string }) {
               <IconButton icon={<SettingsIcon />} shadow />
             </Link>
           </div>
+        
           <div className={styles["sidebar-action"]}>
-            <a href={REPO_URL} target="_blank">
-              <IconButton icon={<BlackBotIcon />} shadow />
+            <a href="https://work.weixin.qq.com/kfid/kfca9b1e4dec33c4358" target="_blank"  className="link">
+              购买秘钥
             </a>
           </div>
         </div>
