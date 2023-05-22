@@ -3,16 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth,getApiKey } from "../../auth";
 import { requestOpenai } from "../../common";
 
-async function checkSystemKey() {
-  console.log(getApiKey())
-   return fetch("/check/token", {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    method: "post",
-    body: JSON.stringify({"key":getApiKey()}),
-  });
-}
 
 async function createStream(res: Response) {
   const encoder = new TextEncoder();
@@ -55,6 +45,17 @@ function formatResponse(msg: any) {
   return new Response(jsonMsg);
 }
 
+function checkSystemKey() {
+  console.log(getApiKey())
+   return fetch("/check/token", {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "post",
+    body: JSON.stringify({"key":getApiKey()}),
+  });
+}
+
 async function handle(
   req: NextRequest,
   { params }: { params: { path: string[] } },
@@ -62,9 +63,9 @@ async function handle(
   console.log("[OpenAI Route] params ", params);
 
   ////大鲸小怪自定义参数校验
-  const response = await checkSystemKey()
-  const body = response.json();
-  console.log(body);
+  const response = checkSystemKey()
+  // const body = response.json();
+  console.log(response);
 
   ///系统校验 发送参数
   const authResult = auth(req);
