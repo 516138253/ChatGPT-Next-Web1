@@ -493,7 +493,7 @@ export const useChatStore = create<ChatStore>()(
               date: "",
             }),
             {
-              overrideModel: "大鲸小怪GPT4",
+              overrideModel: "gpt-3.5-turbo",
               onMessage(message, done) {
                 session.memoryPrompt = message;
                 if (done) {
