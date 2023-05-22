@@ -171,7 +171,7 @@ export async function requestChatStream(
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ "token": useAccessStore.getState().token }),
+      // body: JSON.stringify({ "token": useAccessStore.getState().token }),
       
     }).then(res => {
       if (res.ok) {
@@ -186,7 +186,7 @@ export async function requestChatStream(
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ "token": useAccessStore.getState().token }),
+      // body: JSON.stringify({ "token": useAccessStore.getState().token }),
       
     }).then(res => {
       if (res.ok) {
