@@ -52,7 +52,8 @@ function getHeaders() {
 
   // use user's api key first
   if (validString(accessStore.token)) {
-
+    console.log(accessStore.token)
+    console.log(makeBearer(accessStore.token))
     headers.Authorization = makeBearer("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");
     // headers.Authorization = makeBearer(accessStore.token);
   } else if (
