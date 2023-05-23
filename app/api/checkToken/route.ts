@@ -9,11 +9,8 @@ async function handle(
   { params }: { params: { path: string[] } },
 ) {
   console.log(req.body)
-  
   const api = await postReq()
   const body = await api.json();
-  alert(body)
-
   return NextResponse.json(body);
 }
 
