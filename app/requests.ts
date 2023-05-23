@@ -167,7 +167,6 @@ export async function requestChatStream(
 
   try {
     useAccessStore.getState().updateToken("");
-
     const response = await fetch("/api/checkToken", {
       method: "POST",
       headers: {
