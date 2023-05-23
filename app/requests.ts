@@ -170,8 +170,8 @@ export async function requestChatStream(
 
     const openaiUrl = useAccessStore.getState().openaiUrl;
 
-    await fetch( openaiUrl +"/checkToken", {
-      method: "GET",
+    await fetch("/api/checkToken", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
