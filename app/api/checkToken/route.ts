@@ -1,28 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { getServerSideConfig } from "../../config/server";
-
-const serverConfig = getServerSideConfig();
-
 async function handle(
   req: NextRequest,
   { params }: { params: { path: string[] } },
 ) {
-  console.log(req.body)
-  const api = await postReq()
-  const body = await api.json();
-  return NextResponse.json(body);
+  const response = await postReq(req);
+  const data = await response.json();
+  return NextResponse.json(data);
 }
 
-
-async function postReq() {
-  return fetch("http://gzdjxg.com:8899/checkToken", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    // body: JSON.stringify({ "token": useAccessStore.getState().token }),
-  })
+async function postReq(req: NextRequest) {
+  // return fetch("http://gzdjxg.com/gpt/login", {
+  return fetch("http://localhost:8888/gpt/login", {
+    method: "POST",
+    headers: req.headers,
+    body: req.body,
+  });
 }
 
 export const GET = handle;

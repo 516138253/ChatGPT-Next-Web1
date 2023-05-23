@@ -329,9 +329,9 @@ export function Settings() {
       <div className={styles["settings"]}>
         <List>
           <ListItem title="大鲸小怪官网">
-              <Link href={UPDATE_URL} target="_blank" className="link">
-                 去看看~
-              </Link>
+            <Link href={UPDATE_URL} target="_blank" className="link">
+              去看看~
+            </Link>
           </ListItem>
 
           <ListItem title={Locale.Settings.SendKey}>
@@ -428,16 +428,15 @@ export function Settings() {
               // subTitle={Locale.Settings.Token.SubTitle}
             >
               <PasswordInput
-                value={accessStore.token}
+                value={accessStore.tokenkey}
                 type="text"
                 // placeholder={Locale.Settings.Token.Placeholder}
                 onChange={(e) => {
-                  accessStore.updateToken(e.currentTarget.value);
+                  accessStore.updateTokenKey(e.currentTarget.value);
                 }}
               />
             </ListItem>
           ) : null}
-
         </List>
 
         <List>

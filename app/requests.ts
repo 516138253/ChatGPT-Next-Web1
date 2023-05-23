@@ -166,26 +166,29 @@ export async function requestChatStream(
   const reqTimeoutId = setTimeout(() => controller.abort(), TIME_OUT_MS);
 
   try {
- 
+    useAccessStore.getState().updateToken("");
 
-    const openaiUrl = useAccessStore.getState().openaiUrl;
-
-    await fetch("/api/checkToken", {
+    const response = await fetch("/api/checkToken", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      // body: JSON.stringify({ "token": useAccessStore.getState().token }),
-      
-    }).then(res => {
-      console.log(res.body)
-      if (res.ok) {
-        //  useAccessStore.getState().updateToken(res.body);
-      } else {
-      //  useAccessStore.getState().updateToken("");
-      }
+      body: JSON.stringify({ token: useAccessStore.getState().tokenkey }),
     });
+    var json = await response.json();
+    if (json.status == 404 || json.msg == "201") {
+      console.error("密钥不正确，请联系管理员！");
+      options?.onError(new Error("密钥不正确，请联系管理员！"), 201);
+      return;
+    }
+    if (json.msg == "444") {
+      console.error("密钥已过期，请联系管理员购买！");
+      options?.onError(new Error("密钥已过期，请联系管理员购买！"), 444);
+      return;
+    }
+    useAccessStore.getState().updateToken(json.data);
 
+    const openaiUrl = useAccessStore.getState().openaiUrl;
     const res = await fetch(openaiUrl + "v1/chat/completions", {
       method: "POST",
       headers: {
