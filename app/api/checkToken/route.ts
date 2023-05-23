@@ -16,22 +16,23 @@ async function handle(
   { params }: { params: { path: string[] } },
 ) {
   console.log(req.body)
-  await fetch("http://gzdjxg.com:8899/checkToken", {
+  
+  const api = await postReq()
+  const body = await api.json();
+  console.log(body)
+
+  return NextResponse.json(body);
+}
+
+
+async function postReq() {
+  return fetch("http://gzdjxg.com:8899/checkToken", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
     // body: JSON.stringify({ "token": useAccessStore.getState().token }),
-    
-  }).then(res => {
-    console.log(res.body)
-    if (res.ok) {
-      //  useAccessStore.getState().updateToken(res.body);
-    } else {
-    //  useAccessStore.getState().updateToken("");
-    }
-  });
-  return NextResponse.json(DANGER_CONFIG);
+  })
 }
 
 export const GET = handle;
