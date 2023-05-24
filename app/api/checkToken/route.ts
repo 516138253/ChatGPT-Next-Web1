@@ -10,8 +10,8 @@ async function handle(
 }
 
 async function postReq(req: NextRequest) {
-  // return fetch("http://gzdjxg.com/gpt/login", {
-  return fetch("http://localhost:8888/gpt/login", {
+  return fetch("http://gzdjxg.com/gpt/login", {
+    // return fetch("http://localhost:8888/gpt/login", {
     method: "POST",
     headers: req.headers,
     body: req.body,
