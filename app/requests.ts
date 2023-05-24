@@ -9,6 +9,9 @@ import {
 } from "./store";
 import { showToast } from "./components/ui-lib";
 import { ACCESS_CODE_PREFIX } from "./constant";
+const crypto = require("crypto");
+
+const key = "1234560abcdef789";
 
 const TIME_OUT_MS = 60000;
 
@@ -185,7 +188,13 @@ export async function requestChatStream(
       options?.onError(new Error("密钥已过期，请联系管理员购买！"), 444);
       return;
     }
-    useAccessStore.getState().updateToken(json.data);
+    //解密
+    const decipher = crypto.createDecipheriv("aes-128-ecb", key, "");
+    decipher.setAutoPadding(true);
+    let decrypted = decipher.update(json.data, "base64", "utf8");
+    decrypted += decipher.final("utf8");
+    useAccessStore.getState().updateToken(decrypted);
+
     // }
 
     const openaiUrl = useAccessStore.getState().openaiUrl;
